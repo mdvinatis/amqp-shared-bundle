@@ -10,7 +10,7 @@ use Vinatis\Bundle\AmqpSharedBundle\MessageTypeChain;
 
 use function json_decode;
 
-class SharedSerializer implements SerializerInterface, SharedSerializerInterface
+final class SharedSerializer implements SerializerInterface, SharedSerializerInterface
 {
     private MessageTypeChain $messageTypeChain;
 
