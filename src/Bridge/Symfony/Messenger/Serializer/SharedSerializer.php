@@ -37,8 +37,13 @@ final class SharedSerializer implements SerializerInterface, SharedSerializerInt
 
         try {
             $class = $this->messageTypeChain->getMessageByType($metadata['type']);
-            return new Envelope(new $class($content, $metadata['from'], $metadata['to']));
-        } catch (\InvalidArgumentException) {
+            $object = new $class($content, $metadata['from'], $metadata['to']);
+            if (!($class instanceof SharedMessageInterface)) {
+                throw new \RuntimeException('Message "'.$object::class.'" must implement "SharedMessageInterface"');
+            }
+
+            return new Envelope($object);
+        } catch (\Exception) {
             throw new MessageDecodingFailedException('Metadata type is not valid');
         }
     }

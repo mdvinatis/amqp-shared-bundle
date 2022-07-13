@@ -6,7 +6,6 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
 use Vinatis\Bundle\AmqpSharedBundle\Bridge\Symfony\Messenger\Serializer\SharedSerializer;
 use Vinatis\Bundle\AmqpSharedBundle\MessageTypeChain;
-use Vinatis\Bundle\SecurityLdapBundle\Bridge\Symfony\Security\Core\User\UserChecker;
 
 
 final class VinatisAmqpSharedExtention extends Extension
